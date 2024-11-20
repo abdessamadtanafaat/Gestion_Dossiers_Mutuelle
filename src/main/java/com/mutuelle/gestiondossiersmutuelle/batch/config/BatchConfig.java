@@ -1,5 +1,7 @@
 package com.mutuelle.gestiondossiersmutuelle.batch.config;
 
+import com.mutuelle.gestiondossiersmutuelle.batch.listener.DossierSkipListener;
+import com.mutuelle.gestiondossiersmutuelle.batch.listener.LoggingRetryListener;
 import com.mutuelle.gestiondossiersmutuelle.model.Dossier;
 import com.mutuelle.gestiondossiersmutuelle.processor.ValidationProcessor;
 import com.mutuelle.gestiondossiersmutuelle.reader.DossierJsonReader;
@@ -26,13 +28,19 @@ public class BatchConfig {
     private final DossierDatabaseWriter dossierDatabaseWriter;
     private final ValidationProcessor validationProcessor;
 
+    private final LoggingRetryListener loggingRetryListener;
+
+    private final DossierSkipPolicy dossierSkipPolicy;
+
     public BatchConfig (
                         JobRepository jobRepository,
                        PlatformTransactionManager transactionManager,
                        DossierJsonReader dossierJsonReader,
                        DossierConsoleWriter dossierConsoleWriter,
                         DossierDatabaseWriter dossierDatabaseWrite,
-                        ValidationProcessor validationProcessor
+                        ValidationProcessor validationProcessor,
+                        LoggingRetryListener loggingRetryListener,
+                        DossierSkipPolicy dossierSkipPolicy
     ){
         this.jobRepository = jobRepository;
         this.transactionManager = transactionManager;
@@ -40,6 +48,8 @@ public class BatchConfig {
         this.dossierConsoleWriter = dossierConsoleWriter;
         this.dossierDatabaseWriter = dossierDatabaseWrite;
         this.validationProcessor = validationProcessor;
+        this.loggingRetryListener = loggingRetryListener;
+        this.dossierSkipPolicy = dossierSkipPolicy;
 
     }
 
@@ -57,6 +67,11 @@ public class BatchConfig {
                 .processor(validationProcessor)
                 .writer(dossierConsoleWriter)
                 .writer(dossierDatabaseWriter)
+                .faultTolerant()
+                .retryLimit(3)
+                .retry(IllegalArgumentException.class)
+                .listener(loggingRetryListener)
+                .skipPolicy(dossierSkipPolicy)
                 .build();
     }
 }

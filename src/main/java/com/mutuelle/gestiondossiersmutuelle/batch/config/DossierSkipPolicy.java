@@ -5,7 +5,7 @@ import org.springframework.batch.core.step.skip.SkipPolicy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SkipPolicyConfig implements SkipPolicy {
+public class DossierSkipPolicy implements SkipPolicy {
 
     @Override
     public boolean shouldSkip(Throwable t, long skipCount) throws SkipLimitExceededException {
