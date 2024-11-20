@@ -29,5 +29,6 @@ public class GestionDossiersMutuelleApplication implements CommandLineRunner {
                 .toJobParameters();
 
         jobLauncher.run(processDossierJob, jobParameters);
+
     }
 }

@@ -13,7 +13,7 @@ public class DossierConsoleWriter implements ItemWriter<Dossier> {
 
     @Override
     public void write(Chunk<? extends Dossier> dossiers) throws Exception {
-        dossiers.forEach(dossier -> System.out.println("Dossier lu : "+dossier));
+        dossiers.forEach(dossier -> System.out.println("Dossier lu : "+dossier.getImmatriculation()));
 
     }
 }

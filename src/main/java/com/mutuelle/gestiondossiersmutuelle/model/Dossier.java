@@ -1,13 +1,20 @@
 package com.mutuelle.gestiondossiersmutuelle.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 
+@Entity
 public class Dossier {
 
-    private String nomAssure;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String numeroAffiliation;
+    private String nomAssure;
     private String immatriculation;
     private String lienParente;
     private double montantTotalFrais;
@@ -15,7 +22,14 @@ public class Dossier {
     private int nombrePiecesJointes;
     private String nomBeneficiaire;
     private String dateDepotDossier;
-    private Assure assure;           // Assure object
+
+    private boolean rejet;
+
+
+    @Embedded
+    private Assure assure;
+    @Embedded
+    // Assure object
     private Beneficiaire beneficiaire; // Beneficiaire object
 
     // Getters and Setters
@@ -107,4 +121,13 @@ public class Dossier {
     public void setBeneficiaire(Beneficiaire beneficiaire) {
         this.beneficiaire = beneficiaire;
     }
+
+    public boolean isRejet() {
+        return rejet;
+    }
+
+    public void setRejet(boolean rejet) {
+        this.rejet = rejet;
+    }
+
 }
