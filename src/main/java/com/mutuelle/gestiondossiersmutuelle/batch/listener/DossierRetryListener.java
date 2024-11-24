@@ -8,12 +8,12 @@ import org.springframework.retry.RetryListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LoggingRetryListener implements RetryListener {
+public class DossierRetryListener implements RetryListener {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoggingRetryListener.class);
+    private static final Logger logger = LoggerFactory.getLogger(DossierRetryListener.class);
 
     @Override
     public <T, E extends Throwable> void onError(RetryContext context, RetryCallback<T, E> callback, Throwable throwable) {
-        logger.info("Retry attempt #{} for operation failed. Error: {}", context.getRetryCount(), throwable.getMessage());
+        logger.error("Retry attempt #{} failed. Error: {}", context.getRetryCount(), throwable.getMessage());
     }
 }

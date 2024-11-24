@@ -1,34 +1,30 @@
 package com.mutuelle.gestiondossiersmutuelle.processor;
 
 import com.mutuelle.gestiondossiersmutuelle.model.Dossier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ValidationProcessor implements ItemProcessor<Dossier, Dossier> {
+
+    private static final Logger logger = LoggerFactory.getLogger(ValidationProcessor.class);
+
     @Override
+    public Dossier process(Dossier dossier) throws Exception {
+        logger.debug("Validating dossier: {}", dossier);
 
-    public Dossier process (Dossier dossier) throws Exception {
-        if(dossier.getNomAssure() == null || dossier.getNomAssure().isEmpty()) {
-            throw new IllegalArgumentException("Le nom de l'assuré est manquant");
+        if (dossier.getNomAssure() == null || dossier.getNomAssure().isEmpty()) {
+            throw new IllegalArgumentException("Nom de l'assuré est manquant.");
         }
-
         if (dossier.getNumeroAffiliation() == null || dossier.getNumeroAffiliation().isEmpty()) {
-            throw new IllegalArgumentException("Le numéro d'affiliation est manquant");
+            throw new IllegalArgumentException("Numéro d'affiliation est manquant.");
         }
-
-        if (dossier.getPrixConsultation() <= 0) {
-            throw new IllegalArgumentException("Le prix de la consultation doit être positif");
+        if (dossier.getMontantTotalFrais() <= 0 || dossier.getPrixConsultation() <= 0) {
+            throw new IllegalArgumentException("Les frais et le prix de la consultation doivent être positifs.");
         }
-
-        if (dossier.getMontantTotalFrais() <= 0) {
-            throw new IllegalArgumentException("Le montant total des frais doit être positif");
-        }
-
-        if (dossier.getBeneficiaire() == null) {
-            throw new IllegalArgumentException("Les informations sur le bénéficiaire sont manquantes");
-        }
+        logger.info("Validation passed for dossier: {}", dossier);
         return dossier;
     }
-
 }

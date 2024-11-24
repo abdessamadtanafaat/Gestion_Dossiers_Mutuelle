@@ -1,4 +1,4 @@
-package com.mutuelle.gestiondossiersmutuelle.batch.config;
-
-public class JobLauncherConfig {
-}
+//package com.mutuelle.gestiondossiersmutuelle.batch.config;
+//
+//public class JobLauncherConfig {
+//}

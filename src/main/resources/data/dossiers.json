@@ -17,7 +17,6 @@
         "typeMedicament": "Antalgique",
         "prixMedicament": 5.0
       },
-
       {
         "codeBarre": "0987654321",
         "existe": false,
@@ -28,25 +27,75 @@
     ]
   },
   {
-    "nomAssure": "Farouk",
-    "numeroAffiliation": "AFF654321",
-    "immatriculation": "IMM123098",
+    "nomAssure": "",
+    "numeroAffiliation": "AFF987654",
+    "immatriculation": "IMM876543",
     "lienParente": "épouse",
     "montantTotalFrais": 200.0,
-    "prixConsultation": 60.0,
+    "prixConsultation": 100.0,
     "nombrePiecesJointes": 2,
-    "nomBeneficiaire": "Samira",
-    "dateDepotDossier": "2024-11-11",
-    "traitements": [
-      {
-        "codeBarre": "1122334455",
-        "existe": true,
-        "nomMedicament": "Amoxicilline",
-        "typeMedicament": "Antibiotique",
-        "prixMedicament": 12.0
-      }
-    ]
+    "nomBeneficiaire": "Amal",
+    "dateDepotDossier": "2024-11-12",
+    "traitements": []
+  },
+  {
+    "nomAssure": "Ahmed",
+    "numeroAffiliation": "",
+    "immatriculation": "IMM654321",
+    "lienParente": "enfant",
+    "montantTotalFrais": 50.0,
+    "prixConsultation": 0,
+    "nombrePiecesJointes": 0,
+    "nomBeneficiaire": "Kamal",
+    "dateDepotDossier": "2024-11-13",
+    "traitements": []
+  },
+  {
+    "nomAssure": "Zineb",
+    "numeroAffiliation": "AFF321098",
+    "immatriculation": "IMM321654",
+    "lienParente": "parent",
+    "montantTotalFrais": 0,
+    "prixConsultation": 75.0,
+    "nombrePiecesJointes": 1,
+    "nomBeneficiaire": "",
+    "dateDepotDossier": "2024-11-14",
+    "traitements": []
+  },
+  {
+    "nomAssure": "Valid Dossier",
+    "numeroAffiliation": "AFF555555",
+    "immatriculation": "IMM111222",
+    "lienParente": "frère",
+    "montantTotalFrais": 300.0,
+    "prixConsultation": 100.0,
+    "nombrePiecesJointes": 5,
+    "nomBeneficiaire": "Sofia",
+    "dateDepotDossier": "2024-11-15",
+    "traitements": []
+  },
+  {
+    "nomAssure": "Valid User 1",
+    "numeroAffiliation": "AFF123456",
+    "immatriculation": "IMM987654",
+    "lienParente": "conjoint",
+    "montantTotalFrais": 200.0,
+    "prixConsultation": 75.0,
+    "nombrePiecesJointes": 2,
+    "nomBeneficiaire": "Adam",
+    "dateDepotDossier": "2024-11-10",
+    "traitements": []
+  },
+  {
+    "nomAssure": "Valid User 2",
+    "numeroAffiliation": "AFF654321",
+    "immatriculation": "IMM123456",
+    "lienParente": "parent",
+    "montantTotalFrais": 300.0,
+    "prixConsultation": 150.0,
+    "nombrePiecesJointes": 3,
+    "nomBeneficiaire": "Sofia",
+    "dateDepotDossier": "2024-11-12",
+    "traitements": []
   }
-
-
 ]

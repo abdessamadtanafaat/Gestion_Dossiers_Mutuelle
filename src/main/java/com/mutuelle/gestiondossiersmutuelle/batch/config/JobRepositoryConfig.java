@@ -12,8 +12,8 @@
 //import javax.sql.DataSource;
 //
 //@Configuration
-//@EnableBatchProcessing
-//// repo personalise
+//@EnableBatchProcessing(modular = false) // Désactive le JobRepository par défaut
+//
 //public class JobRepositoryConfig {
 //
 //    @Bean
