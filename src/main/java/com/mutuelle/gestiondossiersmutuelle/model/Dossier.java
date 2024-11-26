@@ -2,12 +2,14 @@ package com.mutuelle.gestiondossiersmutuelle.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 @Entity
+@Data
 public class Dossier {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,112 +24,26 @@ public class Dossier {
     private int nombrePiecesJointes;
     private String nomBeneficiaire;
     private String dateDepotDossier;
-
     private boolean rejet;
 
-
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "nom", column = @Column(name = "assure_nom")),
+            @AttributeOverride(name = "numeroAffiliation", column = @Column(name = "assure_numero_affiliation")),
+            @AttributeOverride(name = "immatriculation", column = @Column(name = "assure_immatriculation"))
+    })
     private Assure assure;
+
     @Embedded
-    // Assure object
-    private Beneficiaire beneficiaire; // Beneficiaire object
+    @AttributeOverrides({
+            @AttributeOverride(name = "nom", column = @Column(name = "beneficiaire_nom")),
+            @AttributeOverride(name = "lienParente", column = @Column(name = "beneficiaire_lien_parente")),
+            @AttributeOverride(name = "dateDepotDossier", column = @Column(name = "beneficiaire_date_depot"))
+    })
+    private Beneficiaire beneficiaire;
 
-    // Getters and Setters
+    @Transient
+    private List<Traitement> traitements;
 
-    public String getNomAssure() {
-        return nomAssure;
-    }
-
-    public void setNomAssure(String nomAssure) {
-        this.nomAssure = nomAssure;
-    }
-
-    public String getNumeroAffiliation() {
-        return numeroAffiliation;
-    }
-
-    public void setNumeroAffiliation(String numeroAffiliation) {
-        this.numeroAffiliation = numeroAffiliation;
-    }
-
-    public String getImmatriculation() {
-        return immatriculation;
-    }
-
-    public void setImmatriculation(String immatriculation) {
-        this.immatriculation = immatriculation;
-    }
-
-    public String getLienParente() {
-        return lienParente;
-    }
-
-    public void setLienParente(String lienParente) {
-        this.lienParente = lienParente;
-    }
-
-    public double getMontantTotalFrais() {
-        return montantTotalFrais;
-    }
-
-    public void setMontantTotalFrais(double montantTotalFrais) {
-        this.montantTotalFrais = montantTotalFrais;
-    }
-
-    public double getPrixConsultation() {
-        return prixConsultation;
-    }
-
-    public void setPrixConsultation(double prixConsultation) {
-        this.prixConsultation = prixConsultation;
-    }
-
-    public int getNombrePiecesJointes() {
-        return nombrePiecesJointes;
-    }
-
-    public void setNombrePiecesJointes(int nombrePiecesJointes) {
-        this.nombrePiecesJointes = nombrePiecesJointes;
-    }
-
-    public String getNomBeneficiaire() {
-        return nomBeneficiaire;
-    }
-
-    public void setNomBeneficiaire(String nomBeneficiaire) {
-        this.nomBeneficiaire = nomBeneficiaire;
-    }
-
-    public String getDateDepotDossier() {
-        return dateDepotDossier;
-    }
-
-    public void setDateDepotDossier(String dateDepotDossier) {
-        this.dateDepotDossier = dateDepotDossier;
-    }
-
-    public Assure getAssure() {
-        return assure;
-    }
-
-    public void setAssure(Assure assure) {
-        this.assure = assure;
-    }
-
-    public Beneficiaire getBeneficiaire() {
-        return beneficiaire;
-    }
-
-    public void setBeneficiaire(Beneficiaire beneficiaire) {
-        this.beneficiaire = beneficiaire;
-    }
-
-    public boolean isRejet() {
-        return rejet;
-    }
-
-    public void setRejet(boolean rejet) {
-        this.rejet = rejet;
-    }
-
+    private double montantTotalRembourse;
 }

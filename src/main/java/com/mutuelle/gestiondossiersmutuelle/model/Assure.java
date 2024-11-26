@@ -1,23 +1,36 @@
 package com.mutuelle.gestiondossiersmutuelle.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Embeddable;
 
-
-import java.util.List;
-
+@Embeddable
 public class Assure {
 
-/*
-    @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
     private String nom;
-    private String  numeroAffiliation;
+    private String numeroAffiliation;
     private String immatriculation;
 
-    private List<Beneficiaire> beneficiaire;
-*/
+    // Getters and Setters
+    public String getNom() {
+        return nom;
+    }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getNumeroAffiliation() {
+        return numeroAffiliation;
+    }
+
+    public void setNumeroAffiliation(String numeroAffiliation) {
+        this.numeroAffiliation = numeroAffiliation;
+    }
+
+    public String getImmatriculation() {
+        return immatriculation;
+    }
+
+    public void setImmatriculation(String immatriculation) {
+        this.immatriculation = immatriculation;
+    }
 }

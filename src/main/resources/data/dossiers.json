@@ -1,101 +1,256 @@
 [
   {
-    "nomAssure": "Ibrahimi",
-    "numeroAffiliation": "AFF123456",
-    "immatriculation": "IMM098765",
-    "lienParente": "fils",
-    "montantTotalFrais": 150.0,
-    "prixConsultation": 50.0,
-    "nombrePiecesJointes": 3,
-    "nomBeneficiaire": "Omar",
-    "dateDepotDossier": "2024-11-10",
+    "nomAssure": "",
+    "numeroAffiliation": "M12345",
+    "immatriculation": "123456789",
+    "lienParente": "Conjoint",
+    "montantTotalFrais": 300.0,
+    "prixConsultation": 100.0,
+    "nombrePiecesJointes": 2,
+    "nomBeneficiaire": "Fatima El Ouardi",
+    "dateDepotDossier": "2024-11-20",
+    "assure": {
+      "nom": "",
+      "numeroAffiliation": "M12345",
+      "immatriculation": "123456789"
+    },
+    "beneficiaire": {
+      "nom": "Fatima El Ouardi",
+      "lienParente": "Conjoint",
+      "dateDepotDossier": "2024-11-20"
+    },
     "traitements": [
       {
-        "codeBarre": "1234567890",
-        "existe": true,
-        "nomMedicament": "Paracétamol",
-        "typeMedicament": "Antalgique",
-        "prixMedicament": 5.0
+        "codeBarre": "6118001230068",
+        "nomMedicament": "URO / EAU POUR IRRIGATION",
+        "typeMedicament": "Antibiotique",
+        "prixMedicament": 50.0,
+        "existe": true
       },
       {
-        "codeBarre": "0987654321",
-        "existe": false,
-        "nomMedicament": "Ibuprofène",
-        "typeMedicament": "Anti-inflammatoire",
-        "prixMedicament": 8.0
+        "codeBarre": "6118010116230",
+        "nomMedicament": "ELOXATINE 5 MG/ML",
+        "typeMedicament": "Antidiabétique",
+        "prixMedicament": 200.0,
+        "existe": true
       }
     ]
   },
   {
-    "nomAssure": "",
-    "numeroAffiliation": "AFF987654",
-    "immatriculation": "IMM876543",
-    "lienParente": "épouse",
-    "montantTotalFrais": 200.0,
-    "prixConsultation": 100.0,
-    "nombrePiecesJointes": 2,
-    "nomBeneficiaire": "Amal",
-    "dateDepotDossier": "2024-11-12",
-    "traitements": []
-  },
-  {
-    "nomAssure": "Ahmed",
+    "nomAssure": "Ahmed El Ouardi",
     "numeroAffiliation": "",
-    "immatriculation": "IMM654321",
-    "lienParente": "enfant",
-    "montantTotalFrais": 50.0,
-    "prixConsultation": 0,
-    "nombrePiecesJointes": 0,
-    "nomBeneficiaire": "Kamal",
-    "dateDepotDossier": "2024-11-13",
-    "traitements": []
-  },
-  {
-    "nomAssure": "Zineb",
-    "numeroAffiliation": "AFF321098",
-    "immatriculation": "IMM321654",
-    "lienParente": "parent",
-    "montantTotalFrais": 0,
-    "prixConsultation": 75.0,
-    "nombrePiecesJointes": 1,
-    "nomBeneficiaire": "",
-    "dateDepotDossier": "2024-11-14",
-    "traitements": []
-  },
-  {
-    "nomAssure": "Valid Dossier",
-    "numeroAffiliation": "AFF555555",
-    "immatriculation": "IMM111222",
-    "lienParente": "frère",
+    "immatriculation": "123456789",
+    "lienParente": "Conjoint",
     "montantTotalFrais": 300.0,
     "prixConsultation": 100.0,
-    "nombrePiecesJointes": 5,
-    "nomBeneficiaire": "Sofia",
-    "dateDepotDossier": "2024-11-15",
-    "traitements": []
-  },
-  {
-    "nomAssure": "Valid User 1",
-    "numeroAffiliation": "AFF123456",
-    "immatriculation": "IMM987654",
-    "lienParente": "conjoint",
-    "montantTotalFrais": 200.0,
-    "prixConsultation": 75.0,
     "nombrePiecesJointes": 2,
-    "nomBeneficiaire": "Adam",
-    "dateDepotDossier": "2024-11-10",
-    "traitements": []
+    "nomBeneficiaire": "Fatima El Ouardi",
+    "dateDepotDossier": "2024-11-20",
+    "assure": {
+      "nom": "Ahmed El Ouardi",
+      "numeroAffiliation": "",
+      "immatriculation": "123456789"
+    },
+    "beneficiaire": {
+      "nom": "Fatima El Ouardi",
+      "lienParente": "Conjoint",
+      "dateDepotDossier": "2024-11-20"
+    },
+    "traitements": [
+      {
+        "codeBarre": "6118001230068",
+        "nomMedicament": "URO / EAU POUR IRRIGATION",
+        "typeMedicament": "Antibiotique",
+        "prixMedicament": 50.0,
+        "existe": true
+      },
+      {
+        "codeBarre": "6118010116230",
+        "nomMedicament": "ELOXATINE 5 MG/ML",
+        "typeMedicament": "Antidiabétique",
+        "prixMedicament": 200.0,
+        "existe": true
+      }
+    ]
   },
   {
-    "nomAssure": "Valid User 2",
-    "numeroAffiliation": "AFF654321",
-    "immatriculation": "IMM123456",
-    "lienParente": "parent",
+    "nomAssure": "Ahmed El Ouardi",
+    "numeroAffiliation": "M12345",
+    "immatriculation": "123456789",
+    "lienParente": "Conjoint",
     "montantTotalFrais": 300.0,
-    "prixConsultation": 150.0,
-    "nombrePiecesJointes": 3,
-    "nomBeneficiaire": "Sofia",
-    "dateDepotDossier": "2024-11-12",
-    "traitements": []
-  }
+    "prixConsultation": 100.0,
+    "nombrePiecesJointes": 2,
+    "nomBeneficiaire": "Fatima El Ouardi",
+    "dateDepotDossier": "2024-11-20",
+    "assure": {
+      "nom": "Ahmed El Ouardi",
+      "numeroAffiliation": "M12345",
+      "immatriculation": "123456789"
+    },
+    "beneficiaire": {
+      "nom": "Fatima El Ouardi",
+      "lienParente": "Conjoint",
+      "dateDepotDossier": "2024-11-20"
+    },
+    "traitements": [
+      {
+        "codeBarre": "INVALID_CODE",
+        "nomMedicament": "Medicament Inexistant",
+        "typeMedicament": "Antibiotique",
+        "prixMedicament": 50.0,
+        "existe": false
+      }
+    ]
+  },
+  {
+    "nomAssure": "Ahmed El Ouardi",
+    "numeroAffiliation": "M12345",
+    "immatriculation": "123456789",
+    "lienParente": "Conjoint",
+    "montantTotalFrais": 300.0,
+    "prixConsultation": 100.0,
+    "nombrePiecesJointes": 2,
+    "nomBeneficiaire": "Fatima El Ouardi",
+    "dateDepotDossier": "2024-11-20",
+    "assure": {
+      "nom": "Ahmed El Ouardi",
+      "numeroAffiliation": "M12345",
+      "immatriculation": "123456789"
+    },
+    "beneficiaire": {
+      "nom": "Fatima El Ouardi",
+      "lienParente": "Conjoint",
+      "dateDepotDossier": "2024-11-20"
+    },
+    "traitements": [
+      {
+        "codeBarre": "6118001230068",
+        "nomMedicament": "URO / EAU POUR IRRIGATION",
+        "typeMedicament": "Antibiotique",
+        "prixMedicament": 50.0,
+        "existe": true
+      },
+      {
+        "codeBarre": "6118010116230",
+        "nomMedicament": "ELOXATINE 5 MG/ML",
+        "typeMedicament": "Antidiabétique",
+        "prixMedicament": 200.0,
+        "existe": true
+      }
+    ]
+  },
+  {
+      "nomAssure": "Khalid Benjelloun",
+      "numeroAffiliation": "A54321",
+      "immatriculation": "987654321",
+      "lienParente": "Frère",
+      "montantTotalFrais": 400.0,
+      "prixConsultation": 150.0,
+      "nombrePiecesJointes": 3,
+      "nomBeneficiaire": "Sara Benjelloun",
+      "dateDepotDossier": "2024-11-21",
+      "assure": {
+        "nom": "Khalid Benjelloun",
+        "numeroAffiliation": "A54321",
+        "immatriculation": "987654321"
+      },
+      "beneficiaire": {
+        "nom": "Sara Benjelloun",
+        "lienParente": "Frère",
+        "dateDepotDossier": "2024-11-21"
+      },
+      "traitements": [
+        {
+          "codeBarre": "6118000091974",
+          "nomMedicament": "CEFACLOR",
+          "typeMedicament": "Antibiotique",
+          "prixMedicament": 0.54,
+          "existe": true
+        },
+        {
+          "codeBarre": "6118000041344",
+          "nomMedicament": "FLUCONAZOLE",
+          "typeMedicament": "Antifongique",
+          "prixMedicament": 0.94,
+          "existe": true
+        }
+      ]
+    },
+  {
+      "nomAssure": "Moulay Rachid El Houssaine",
+      "numeroAffiliation": "M87654",
+      "immatriculation": "112233445",
+      "lienParente": "Père",
+      "montantTotalFrais": 350.0,
+      "prixConsultation": 100.0,
+      "nombrePiecesJointes": 1,
+      "nomBeneficiaire": "Nadia El Houssaine",
+      "dateDepotDossier": "2024-11-22",
+      "assure": {
+        "nom": "Moulay Rachid El Houssaine",
+        "numeroAffiliation": "M87654",
+        "immatriculation": "112233445"
+      },
+      "beneficiaire": {
+        "nom": "Nadia El Houssaine",
+        "lienParente": "Père",
+        "dateDepotDossier": "2024-11-22"
+      },
+      "traitements": [
+        {
+          "codeBarre": "6118000070795",
+          "nomMedicament": "FLUCONAZOLE",
+          "typeMedicament": "Antifongique",
+          "prixMedicament": 0.87,
+          "existe": true
+        },
+        {
+          "codeBarre": "6118000111161",
+          "nomMedicament": "SUPRIMASE",
+          "typeMedicament": "Antibiotique",
+          "prixMedicament": 490.36,
+          "existe": true
+        }
+      ]
+    },
+  {
+      "nomAssure": "Rachid El Houssaine",
+      "numeroAffiliation": "M98654",
+      "immatriculation": "998877665",
+      "lienParente": "Père",
+      "montantTotalFrais": 350.0,
+      "prixConsultation": 150.0,
+      "nombrePiecesJointes": 2,
+      "nomBeneficiaire": "Samira El Houssaine",
+      "dateDepotDossier": "2024-11-23",
+      "assure": {
+        "nom": "Rachid El Houssaine",
+        "numeroAffiliation": "M98654",
+        "immatriculation": "998877665"
+      },
+      "beneficiaire": {
+        "nom": "Samira El Houssaine",
+        "lienParente": "Fille",
+        "dateDepotDossier": "2024-11-23"
+      },
+      "traitements": [
+        {
+          "codeBarre": "6118001120758",
+          "nomMedicament": "SENOSIDES CALCIQUES",
+          "typeMedicament": "Laxatif",
+          "prixMedicament": 0.94,
+          "existe": true
+        },
+        {
+          "codeBarre": "6118000041344",
+          "nomMedicament": "PURSENNIDE",
+          "typeMedicament": "Laxatif",
+          "prixMedicament": 363.41,
+          "existe": true
+        }
+      ]
+    }
+
 ]
+

@@ -11,6 +11,7 @@ public class DossierSkipListener implements SkipListener<Dossier, Dossier> {
 
     private static final Logger logger = LoggerFactory.getLogger(DossierSkipListener.class);
 
+    // écouteur qui est invoqué lorsqu'un dossier est ignoré (skip).
     @Override
     public void onSkipInRead(Throwable t) {
         logger.warn("Skipped during reading. Error: {}", t.getMessage());

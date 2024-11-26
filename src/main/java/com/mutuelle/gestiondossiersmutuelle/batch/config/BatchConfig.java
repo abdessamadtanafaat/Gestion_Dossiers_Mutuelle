@@ -4,8 +4,7 @@ import com.mutuelle.gestiondossiersmutuelle.batch.listener.DossierRetryListener;
 import com.mutuelle.gestiondossiersmutuelle.batch.listener.DossierSkipListener;
 import com.mutuelle.gestiondossiersmutuelle.batch.listener.LoggingRetryListener;
 import com.mutuelle.gestiondossiersmutuelle.model.Dossier;
-import com.mutuelle.gestiondossiersmutuelle.processor.TotalRemboursementProcessor;
-import com.mutuelle.gestiondossiersmutuelle.processor.ValidationProcessor;
+import com.mutuelle.gestiondossiersmutuelle.processor.*;
 import com.mutuelle.gestiondossiersmutuelle.reader.DossierJsonReader;
 import com.mutuelle.gestiondossiersmutuelle.writer.DossierDatabaseWriter;
 import org.springframework.batch.core.Job;
@@ -29,43 +28,65 @@ public class BatchConfig {
     private final PlatformTransactionManager transactionManager;
     private final DossierJsonReader dossierJsonReader;
     private final DossierDatabaseWriter dossierDatabaseWriter;
-    private final ValidationProcessor validationProcessor;
-    private final TotalRemboursementProcessor totalRemboursementProcessor;
     private final DossierSkipPolicy dossierSkipPolicy;
     private final DossierRetryListener dossierRetryListener;
     private final DossierSkipListener dossierSkipListener;
     private final LoggingRetryListener loggingRetryListener;
+    private final ValidationProcessor validationProcessor;
+    private final ConsultationProcessor consultationProcessor;
+    private final TraitementMappingProcessor traitementMappingProcessor;
+    private final TotalRemboursementProcessor totalRemboursementProcessor;
+
+    private final TraitementRemboursementProcessor traitementRemboursementProcessor;
 
     public BatchConfig(
             JobRepository jobRepository,
             PlatformTransactionManager transactionManager,
             DossierJsonReader dossierJsonReader,
             DossierDatabaseWriter dossierDatabaseWriter,
-            ValidationProcessor validationProcessor,
-            TotalRemboursementProcessor totalRemboursementProcessor,
             DossierSkipPolicy dossierSkipPolicy,
             DossierRetryListener dossierRetryListener,
             DossierSkipListener dossierSkipListener,
-            LoggingRetryListener loggingRetryListener
+            LoggingRetryListener loggingRetryListener,
+            ValidationProcessor validationProcessor,
+            ConsultationProcessor consultationProcessor,
+            TraitementMappingProcessor traitementMappingProcessor,
+            TotalRemboursementProcessor totalRemboursementProcessor,
+            TraitementRemboursementProcessor traitementRemboursementProcessor
+
     ) {
         this.jobRepository = jobRepository;
         this.transactionManager = transactionManager;
         this.dossierJsonReader = dossierJsonReader;
         this.dossierDatabaseWriter = dossierDatabaseWriter;
-        this.validationProcessor = validationProcessor;
-        this.totalRemboursementProcessor = totalRemboursementProcessor;
         this.dossierSkipPolicy = dossierSkipPolicy;
         this.dossierRetryListener = dossierRetryListener;
         this.dossierSkipListener = dossierSkipListener;
         this.loggingRetryListener = loggingRetryListener;
+        this.validationProcessor = validationProcessor;
+        this.consultationProcessor = consultationProcessor;
+        this.traitementMappingProcessor = traitementMappingProcessor;
+        this.traitementRemboursementProcessor = traitementRemboursementProcessor;
+        this.totalRemboursementProcessor = totalRemboursementProcessor;
+
     }
 
     @Bean
     public CompositeItemProcessor<Dossier, Dossier> compositeProcessor() {
         CompositeItemProcessor<Dossier, Dossier> compositeProcessor = new CompositeItemProcessor<>();
-        compositeProcessor.setDelegates(Arrays.asList(validationProcessor, totalRemboursementProcessor));
+
+        // Chain the processors in the required order
+        compositeProcessor.setDelegates(Arrays.asList(
+                validationProcessor,                  // Validate constraints
+                consultationProcessor,                // Calculate consultation reimbursement
+                traitementMappingProcessor,           // Map treatment to reference drug and check availability
+                traitementRemboursementProcessor,     // Calculate reimbursement for referenced drug treatments
+                totalRemboursementProcessor           // Calculate the total reimbursement (consultation + treatments)
+        ));
+
         return compositeProcessor;
     }
+
 
     @Bean
     public Step processStep() {

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DossierRetryListener implements RetryListener {
 
+    // La classe DossierRetryListener écoute les événements de tentative de reprise après
+    // une erreur.
     private static final Logger logger = LoggerFactory.getLogger(DossierRetryListener.class);
 
     @Override
